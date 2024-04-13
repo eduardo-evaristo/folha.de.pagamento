@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1 href="#" class="logo">LOGO</h1>
+            <nav>
+                <ul>
+                <li><a href="#" class="header-nav-link">Buy</a></li>
+                <li><a href="#" class="header-nav-link">Options</a></li>
+                <li><a href="#" class="header-nav-link">FAQ</a></li>
+                <li><a href="#" class="header-nav-link">About</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <section>
+            <div class="hero-section">
+                <div class="hero-text">
+                    <h1 class="h1-hero" >Não sabe o que acontece com <br> o seu salário?</h1>
+                    <h2 class="h2-hero">Calcule sua folha de pagamento!</h2>
+                </div>
+                <div class="buttons">
+                    <button class="hero-button">Calcule</button>
+                    <button class="hero-button">Aprenda a calcular</button>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <div class="main-calculations">
+
+                <div class="left-grid-item">
+                    <label for="">Salário Bruto</label>
+                    <input type="text"  id="salario-bruto" placeholder="Salário bruto" class="left-grid-item-input">
+                </div>
+
+                <div class="left-grid-item">
+                    <label for="">Dias Úteis</label>
+                    <input type="text" name=""  id="dias-uteis" placeholder="Dias trabalhados" class="left-grid-item-input">
+                </div>
+
+                <div class="left-grid-item">
+                    <label for="">Passagem Ida e Volta</label>
+                    <input type="text" name="" id="passagem" placeholder="Valor passagem" class="left-grid-item-input">
+                </div>
+
+                <div class="left-grid-item">
+                    <label for="">Vale Alimentação</label>
+                    <input type="text" name="" id="vale-alimentacao" placeholder="Valor vale alimentação" class="left-grid-item-input">
+                </div>
+
+                <div class="left-grid-item">
+                    <label for="proventos">Insalubridade/Periculosidade</label>
+                    <select name="proventos" id="proventos">
+                        <option value="">Não possui</option>
+                        <option value="periculosidade">Periculosidade</option>
+                        <option value="insalubridade">Insalubridade</option>
+                    </select>
+                </div>
+
+                <div class="left-grid-item">
+                    <div class="insalubridade hidden">
+                        <label for="insalubridade">Selecione:</label>
+                        <select name="insalubridade" id="insalubridade">
+                            <option value="">Modalidade</option>
+                            <option value="minima">Mínima</option>
+                            <option value="media">Média</option>
+                            <option value="maxima">Máxima</option>
+                        </select>
+                    </div>
+                    <button class="main-button">Enviar</button>
+                </div>
+
+            </div>
+
+            <div class="results">
+                
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
