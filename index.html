@@ -20,7 +20,7 @@
             </nav>
         </header>
     
-        <section>
+        <section class="hero">
             <div class="hero-section">
                 <div class="hero-text">
                     <h1 class="h1-hero" >Não sabe o que acontece com <br> o seu salário?</h1>
@@ -43,20 +43,25 @@
 
                 <div class="left-grid-item">
                     <label for="dias-uteis">Dias Úteis</label>
-                    <input type="text" name=""  id="dias-uteis" class="left-grid-item-input" required>
+                    <input type="text" name=""  id="dias-uteis" class="left-grid-item-input">
                 </div>
 
                 <div class="left-grid-item">
                     <label for="passagem">Passagem Ida e Volta</label>
                     <input type="text" name="" id="passagem" class="left-grid-item-input">
+                    <div class="checkbox">
+                    <label for="checkbox-passagem">Não possui</label>
+                    <input type="checkbox" name="" id="checkbox-passagem" value="NP">
+                    </div>
                 </div>
 
                 <div class="left-grid-item">
                     <label for="vale-refeicao">Vale Refeição</label>
-                    <input type="text" name="" id="vale-refeicao" class="left-grid-item-input">
-                    <!--
-                    <label for="">Não possui</label>
-                    <input type="checkbox" name="" id="">-->
+                    <input type="text" name="" id="vale-refeicao" class="left-grid-item-input" >
+                    <div class="checkbox">
+                    <label for="checkbox-vale-refeicao">Não possui</label>
+                    <input type="checkbox" name="" id="checkbox-vale-refeicao">
+                    </div>
                 </div>
 
                 <div class="left-grid-item">
@@ -113,20 +118,79 @@
                     <h1 class="right-grid-item-h1">INSS</h1>
                     <p class="right-grid-item-p inss-valor"></p>
                 </div>
-
+<!--
                 <div class="right-grid-item">
                     <h1 class="right-grid-item-h1">Imposto de renda</h1>
                     <p class="right-grid-item-p ir-valor"></p>
                 </div>
-
+-->
                 <div class="right-grid-item salario-liquido">
-                    <h1 class="right-grid-item-h1 salario-liquido-h1">Salário Líquido</h1>
+                    <h1 class="right-grid-item-h1 salario-liquido-h1">Salário Líquido *</h1>
                     <p class="right-grid-item-p salario-liquido-valor"></p>
                 </div>
 
             </div>
         </main>
     </div>
+
+    <section class="accordion">
+<!--
+        <div class="warn">
+            <h1 class="warn-text">Aprenda a calcular!</h1>
+        </div>
+-->
+
+        <div class="accordion-section">
+            <div class="accordion-item">
+                <div class="accordion-item-head">Cálculo de Vale-Transporte</div>
+                    <div class="accordion-item-body">
+                        <p class="accordion-item-body-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt molestias asperiores nam sequi. Accusantium amet ducimus eaque suscipit, illum, itaque obcaecati natus placeat delectus soluta corrupti, rerum voluptate provident eos?
+                        </p>
+                    </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-item-head">Cálculo de Vale-Refeição</div>
+                    <div class="accordion-item-body">
+                        <p class="accordion-item-body-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt molestias asperiores nam sequi. Accusantium amet ducimus eaque suscipit, illum, itaque obcaecati natus placeat delectus soluta corrupti, rerum voluptate provident eos?
+                        </p>
+                    </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-item-head">Cálculo de Periculosidade</div>
+                    <div class="accordion-item-body">
+                        <p class="accordion-item-body-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt molestias asperiores nam sequi. Accusantium amet ducimus eaque suscipit, illum, itaque obcaecati natus placeat delectus soluta corrupti, rerum voluptate provident eos?
+                        </p>
+                    </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-item-head">Cálculo de Insalubridade</div>
+                    <div class="accordion-item-body">
+                        <p class="accordion-item-body-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt molestias asperiores nam sequi. Accusantium amet ducimus eaque suscipit, illum, itaque obcaecati natus placeat delectus soluta corrupti, rerum voluptate provident eos?
+                        </p>
+                    </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-item-head">Cálculo de FGTS</div>
+                    <div class="accordion-item-body">
+                        <p class="accordion-item-body-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt molestias asperiores nam sequi. Accusantium amet ducimus eaque suscipit, illum, itaque obcaecati natus placeat delectus soluta corrupti, rerum voluptate provident eos?
+                        </p>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        
+    </footer>
     
     <script src="script.js"></script>
 </body>

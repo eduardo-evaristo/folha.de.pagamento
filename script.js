@@ -8,6 +8,9 @@ const insalubridadeWindow = document.querySelector(".insalubridade");
 const insalubridade = document.getElementById("insalubridade");
 const mainButton = document.querySelector(".main-button");
 const salarioMinimoAtual = 1412;
+const checkboxPassagem = document.getElementById("checkbox-passagem");
+const checkboxValeRefeicao = document.getElementById("checkbox-vale-refeicao");
+const accordionItemHead = document.querySelectorAll(".accordion-item-head");
 
 //Final values
 const passagemVal = document.querySelector(".passagem-valor");
@@ -117,3 +120,26 @@ salarioBruto.addEventListener("keydown", validKeys);
 diasUteis.addEventListener("keydown", validKeys);
 passagem.addEventListener("keydown", validKeys);
 valeRefeicao.addEventListener("keydown", validKeys);
+
+checkboxPassagem.addEventListener("input", function() {
+  passagem.toggleAttribute("disabled");
+})
+
+checkboxValeRefeicao.addEventListener("input", function() {
+  valeRefeicao.toggleAttribute("disabled");
+})
+
+//Accordion
+for (let i = 0; i < accordionItemHead.length; i++) {
+  accordionItemHead[i].addEventListener("click", function() {
+    accordionItemHead[i].classList.toggle("active");
+    const accordionItemBody = accordionItemHead[i].nextElementSibling;
+
+    if (accordionItemHead[i].classList.contains("active")) {
+      accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+      console.log(accordionItemBody.scrollHeight);
+    } else {
+      accordionItemBody.style.maxHeight = 0;
+    }
+  })
+}

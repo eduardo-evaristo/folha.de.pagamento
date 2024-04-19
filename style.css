@@ -20,6 +20,7 @@
     --white: #e4e4e7;
     --black: #09090b;
     --light-blue: #4338ca;
+    --box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .wrapper {
@@ -47,7 +48,7 @@ ul, nav {
 
 .logo {
     color: var(--white);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: var(--box-shadow)
 }
 /*
 .header-nav-link {
@@ -72,9 +73,9 @@ ul, nav {
 }
 /* HERO */
 
-section {
+.hero {
     /*height: 80vh;*/
-    height: 600px;
+    /*height: 600px; OVERFLOWING 1*/
     background-color: var(--light-blue);
     display: flex;
     align-items: center;
@@ -86,7 +87,7 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin: 2rem auto;
+    margin: 5rem 0; /*SOLVES OVERFLOW 1*/
 }
 
 
@@ -139,7 +140,7 @@ section {
     display: flex;
     align-items: center;
 
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: var(--box-shadow)
 }
 
 .hero-button::after {
@@ -155,7 +156,8 @@ section {
 }
 
 main {
-    height: 800px;
+
+    /*height: 800px; OVERFLOWING*/ 
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: var(--dark-blue);
@@ -165,8 +167,9 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-
+    margin: 3rem 0 3rem; /*SOLVES OVERFLOW*/
 }
+
 
 .left-grid-item {
     display: flex;
@@ -174,13 +177,13 @@ main {
     justify-content: center;
     align-items: center;
     margin: 3rem auto;
-    gap: 2rem;
+    gap: 1.5rem;
     background-color: var(--light-blue);
     border-radius: 10px;
     width: 80%;
     height: 70%;
     color: var(--white);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: var(--box-shadow)
 }
 
 label {
@@ -195,6 +198,13 @@ label {
     color: var(--white);
     outline: none;
     text-align: center;
+}
+
+.checkbox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
 }
 
 select {
@@ -245,7 +255,7 @@ select {
     width: 80%;
     margin: auto;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: var(--box-shadow)
 }
 
 .right-grid-item {
@@ -260,11 +270,11 @@ select {
     width: 80%;
     height: 70%;
     color: var(--black);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: var(--box-shadow)
 }
 
 .salario-liquido {
-    grid-column-end: span 2;
+    grid-column-end: span 3;
     width: 90%;
     background-color: var(--orange);
 }
@@ -296,9 +306,108 @@ select {
     font-weight: 700;
 }
 
+
+/* ACCORDION*/
+.warn {
+    background-color: var(--white);
+    padding: 3rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.warn-text {
+    font-weight: 800;
+    color: var(--orange);
+}
+
+
+.accordion {
+    background-color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.accordion-section {
+    width: 70%;
+    max-width: 1200px;
+    margin: 3rem 0 3rem 0;
+}
+
+.accordion-item {
+    background-color: var(--white);
+    border-radius: 1rem;
+    margin: 1rem 0;
+    box-shadow: var(--box-shadow)
+}
+
+.accordion-item-head {
+    background-color: var(--orange);
+    padding: 2rem 3rem 2rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 1.5rem;
+    color: var(--white);
+    font-weight: 700;
+    border-radius: 1rem;
+}
+
+.accordion-item-head:after {
+    content: "\002B";
+    font-size: 2rem;
+    position: absolute;
+    right: 1rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.accordion-item-head.active:after {
+    content: "\002B";
+    transform: rotate(45deg);
+}
+
+.accordion-item-body {
+    max-height: 0;
+    overflow:hidden;
+    transition: max-height 0.2s ease-in-out;
+}
+
+.accordion-item-body-text {
+    padding: 2rem;
+    font-weight: 400;
+}
+
+
+
 @media screen and (max-width: 768px) {
     main, .main-calculations, .results{
-        grid-template-columns: 1fr; /* Switch to single column layout */
+        grid-template-columns: 1fr;
 }
+
+    .salario-liquido {
+        grid-column-end: span 1;
+    }
+
+    main {
+        gap: 3rem;
+    }
+    main, .main-calculations, .results {
+        height:auto;
+    }
+
+    .buttons {
+        width: 30%;
+        max-width: 280px;
+    }
+
+    .hero {
+        height: max-content;
+    }
+
+    .h1-hero {
+        font-size: 3rem;
+    }
 }
 
