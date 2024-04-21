@@ -106,7 +106,7 @@ function calcSalarioLiquido() {
     calcValeRefeicao() +
     calcInsalubridade() +
     calcPericulosidade()
-  );
+  ).toFixed(2);
 }
 
 //Função para obter valores inseridos
