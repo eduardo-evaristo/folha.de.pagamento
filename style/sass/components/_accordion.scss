@@ -1,0 +1,61 @@
+@use "../abstract/global";
+
+.accordion {
+    background-color: global.$dark-blue;
+    @include global.flex-column();
+    justify-content: center;
+    align-items: center;
+
+    .accordion-section {
+        width: 70%;
+        max-width: 1200px;
+        margin: 3rem 0 3rem 0;
+
+        .accordion-item {
+            background-color: global.$white;
+            border-radius: 1rem;
+            margin: 1rem 0;
+            box-shadow: global.$box-shadow;
+
+            .accordion-item-head {
+                background-color: global.$orange;
+                padding: 2rem 3rem 2rem 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                font-size: 1.5rem;
+                color: global.$white;
+                font-weight: 700;
+                border-radius: 1rem;
+                cursor: pointer;
+
+                &::after {
+                    content: "\002B";
+                    font-size: 2rem;
+                    position: absolute;
+                    right: 1rem;
+                    transition: transform 0.2s ease-in-out;
+                }
+
+                &.active::after {
+                    content: "\002B";
+                    transform: rotate(45deg);
+                }
+            }
+
+            .accordion-item-body {
+                max-height: 0;
+                overflow:hidden;
+                transition: max-height 0.2s ease-in-out;
+
+                .accordion-item-body-text {
+                    padding: 2rem;
+                    font-weight: 400;
+                    line-height: 2rem;
+                }
+            }
+        }
+    }
+
+}

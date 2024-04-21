@@ -1,0 +1,89 @@
+@use "../abstract/global";
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: global.$dark-blue;
+
+//--------------First Grid----------------//
+    .main-calculations {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        margin: 3rem 0 3rem; /*SOLVES OVERFLOW*/
+
+        .left-grid-item {
+            @include global.flex-column();
+            justify-content: center;
+            align-items: center;
+            margin: 3rem auto;
+            gap: 1.5rem;
+            background-color: global.$light-blue;
+            border-radius: 10px;
+            width: 80%;
+            height: 70%;
+            color: global.$white;
+            box-shadow: global.$box-shadow;
+
+            label {
+                font-weight: 600;
+            }
+
+            .left-grid-item-input {
+                width: 50%;
+                padding: 1rem;
+                border-radius: 20px;
+                background-color: global.$orange;
+                color: global.$white;
+                outline: none;
+                text-align: center;
+            }
+
+            .checkbox {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            select {
+                width: 50%;
+                padding: 1rem;
+                border-radius: 20px;
+                cursor: pointer;
+                background-color: global.$orange;
+                color: global.$white;
+                outline: none;
+                text-align: center;
+            }
+
+            .main-button {
+                width: 50%;
+                padding: 1rem;
+                border-radius: 20px;
+                cursor: pointer;
+                background-color: global.$orange;
+                color: global.$white;
+                outline: none;
+                text-align: center;
+                font-weight: 700;
+                transition: color 0.2s ease-in-out;
+
+                    &:hover {
+                        color: global.$black;
+                    }
+            }
+
+            .insalubridade {
+                display: flex;
+                gap: 2rem;
+                align-items: center;
+
+                &.hidden {
+                    display: none;
+                }
+            }  
+        }
+    }
+//--------------Second Grid----------------//
+}

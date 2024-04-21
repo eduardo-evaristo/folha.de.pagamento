@@ -1,0 +1,68 @@
+@use "../abstract/global";
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: global.$dark-blue;
+
+    .results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr 1fr;
+        background-color: global.$light-blue;
+        height: 80%;
+        width: 80%;
+        margin: auto;
+        border-radius: 20px;
+        box-shadow: global.$box-shadow;
+
+        .right-grid-item {
+            @include global.flex-column();
+            justify-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            gap: 1rem;
+            background-color: global.$white;
+            border-radius: 10px;
+            width: 80%;
+            height: 70%;
+            color: global.$black;
+            box-shadow: global.$box-shadow;
+
+            &.salario-liquido {
+                grid-column-end: span 3;
+                width: 90%;
+                background-color: global.$orange;
+
+                .right-grid-item-h1.salario-liquido-h1 {
+                    font-size: 25px;
+                    color: global.$white;
+                }
+
+            }
+
+            .right-grid-item-h1 {
+                font-size: 15px;
+                font-weight: 600;
+                color: var(--black);
+            }
+
+            .right-grid-item-p{
+                font-weight: 600;
+                font-size: 25px;
+                color: global.$black;
+            }
+
+            .desconto {
+                color: red;
+                font-weight: 700;
+            }
+
+            .provento {
+                color: green;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
