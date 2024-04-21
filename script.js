@@ -11,6 +11,11 @@ const salarioMinimoAtual = 1412;
 const checkboxPassagem = document.getElementById("checkbox-passagem");
 const checkboxValeRefeicao = document.getElementById("checkbox-vale-refeicao");
 const accordionItemHead = document.querySelectorAll(".accordion-item-head");
+//const heroButton1 = document.querySelector(".button-1");
+//const heroButton2 = document.querySelector(".button-2");
+const heroButtons = document.querySelectorAll(".hero-button");
+//const main = document.querySelector("main");
+//const accordionSection = document.querySelector(".accordion");
 
 //Final values
 const passagemVal = document.querySelector(".passagem-valor");
@@ -42,6 +47,13 @@ function validKeys(event) {
 
   if (!validKeys.includes(event.key)) {
     event.preventDefault();
+  }
+}
+
+//Função para número mínimo e máximo de dias trabalhados por mês
+function diasUteisMinMax() {
+  if (!(diasUteis.value > 0 && diasUteis.value < 32)) {
+    diasUteis.value = "";
   }
 }
 
@@ -79,7 +91,7 @@ function calcInsalubridade() {
 
 //Função para calcular vale-refeição
 function calcValeRefeicao() {
-  return Number(((valeRefeicao.value * diasUteis.value) * 0.2).toFixed(2));
+  return Number((valeRefeicao.value * diasUteis.value * 0.2).toFixed(2));
 }
 
 function calcFGTS() {
@@ -88,20 +100,27 @@ function calcFGTS() {
 
 //Função para calcular salário líquido
 function calcSalarioLiquido() {
-  return salarioBruto.value - calcPassagem() - calcValeRefeicao() + calcInsalubridade() + calcPericulosidade();
+  return (
+    salarioBruto.value -
+    calcPassagem() -
+    calcValeRefeicao() +
+    calcInsalubridade() +
+    calcPericulosidade()
+  );
 }
 
 //Função para obter valores inseridos
-mainButton.addEventListener("click", function () {
-  if (salarioBruto.value !== 0 && diasUteis.value !== 0) {
+mainButton.addEventListener("click", function (e) {
+  //Previne refresh do form
+  e.preventDefault();
+
+  if (salarioBruto.value !== "" && diasUteis.value !== "") {
     passagemVal.textContent = "-" + calcPassagem();
     periculosidadeVal.textContent = "+" + calcPericulosidade();
     insalubridadeVal.textContent = "+" + calcInsalubridade();
     valeRefeicaoVal.textContent = "-" + calcValeRefeicao();
     fgtsVal.textContent = calcFGTS();
     salarioLiquidoVal.textContent = calcSalarioLiquido();
-
-
   }
 });
 
@@ -112,26 +131,66 @@ proventos.addEventListener("input", () => {
     insalubridadeWindow.classList.remove("hidden");
   } else {
     insalubridadeWindow.classList.add("hidden");
+    //Gotta understand this better later
+    insalubridade.selectedIndex = 0;
   }
 });
 
 //Validação nos inputs
 salarioBruto.addEventListener("keydown", validKeys);
 diasUteis.addEventListener("keydown", validKeys);
+diasUteis.addEventListener("input", diasUteisMinMax);
 passagem.addEventListener("keydown", validKeys);
 valeRefeicao.addEventListener("keydown", validKeys);
 
-checkboxPassagem.addEventListener("input", function() {
+checkboxPassagem.addEventListener("input", function () {
   passagem.toggleAttribute("disabled");
-})
+});
 
-checkboxValeRefeicao.addEventListener("input", function() {
+checkboxValeRefeicao.addEventListener("input", function () {
   valeRefeicao.toggleAttribute("disabled");
-})
+});
+
+//Check better later - Unchecks the checkboxes when page is loaded
+window.onload = function () {
+  checkboxPassagem.checked = false;
+  checkboxValeRefeicao.checked = false;
+};
+
+//scrollIntoView()
+/*
+heroButton1.addEventListener("click", function() {
+  main.scrollIntoView({block: "center", behavior: "smooth"});
+  console.log(1)
+});
+
+heroButton2.addEventListener("click", function () {
+  accordionSection.scrollIntoView({ block: "center", behavior: "smooth" });
+  console.log(1);
+});
+*/
+
+for (let i = 0; i < heroButtons.length; i++) {
+  heroButtons[i].addEventListener("click", function () {
+    const targetId = this.getAttribute("data-target");
+    //Gets the value from the HTML attribute data-target, which is the id of the element we need to scrollIntoView()
+    //console.log(targetId)
+    //let targetElement = document.querySelector(`#${targetId}`);
+    const targetElement = document.getElementById(targetId);
+    //In this context, the target element does not exist, so we need to document.querySelector it before, otherwise, it has no other way of knowing where it needs to go
+    if (targetElement) {
+      targetElement.scrollIntoView({ block: "center", behavior: "smooth" });
+    } else {
+      console.error(
+        `${Error} targetElement could not be found. Target element is ${targetElement}!`
+      );
+    }
+  });
+}
 
 //Accordion
 for (let i = 0; i < accordionItemHead.length; i++) {
-  accordionItemHead[i].addEventListener("click", function() {
+  accordionItemHead[i].addEventListener("click", function () {
     accordionItemHead[i].classList.toggle("active");
     const accordionItemBody = accordionItemHead[i].nextElementSibling;
 
@@ -141,5 +200,5 @@ for (let i = 0; i < accordionItemHead.length; i++) {
     } else {
       accordionItemBody.style.maxHeight = 0;
     }
-  })
+  });
 }
