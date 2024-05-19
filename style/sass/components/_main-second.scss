@@ -1,68 +1,150 @@
 @use "../abstract/global";
 
 main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: global.$dark-blue;
+
+  .results {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: global.$dark-blue;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: global.$light-blue;
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: global.$box-shadow;
+    place-items: center;
+
+    .right-grid-item {
+      @include global.flex-column();
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      //margin: 2rem auto;
+      gap: 1rem;
+      background-color: global.$white;
+      border-radius: 10px;
+      width: 80%;
+      height: 70%;
+      color: global.$black;
+      box-shadow: global.$box-shadow;
+
+      &.salario-liquido {
+        grid-column-end: span 3;
+        width: 90%;
+        background-color: global.$orange;
+
+        .right-grid-item-h1.salario-liquido-h1 {
+          font-size: 25px;
+          color: global.$white;
+        }
+      }
+
+      .right-grid-item-h1 {
+        font-size: 15px;
+        font-weight: 600;
+        color: global.$black;
+      }
+
+      .right-grid-item-p {
+        font-weight: 600;
+        font-size: 25px;
+        color: global.$black;
+      }
+
+      .desconto {
+        color: red;
+        font-weight: 700;
+      }
+
+      .provento {
+        color: green;
+        font-weight: 700;
+      }
+    }
+  }
+}
+//Media Queries
+@media screen and (max-width: 1255px) {
+  .right-grid-item-h1 {
+    font-size: 12px !important;
+  }
+  .right-grid-item-p {
+    font-size: 20px !important;
+  }
+}
+
+/*
+@media screen and (max-width: 990px) {
+  // Not working as intended
+  .results {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    margin: 2rem 1rem !important;
+    .right-grid-item {
+      height: 50% !important;
+      width: 70% !important;
+      margin: 1rem auto !important;
+      gap: 1rem;
+    }
+  }
+}
+*/
+@media screen and (max-width: 990px) {
+  .results {
+    grid-template-columns: 1fr 1fr !important; /* Update to 2 columns */
+    grid-template-rows: repeat(4, 1fr) !important;
+    height: 100% !important;
+    margin: 2rem 1rem !important;
+    .right-grid-item {
+      height: 40% !important;
+      width: 80% !important;
+      //margin: 5rem auto !important;
+      gap: 1rem !important;
+
+      h1 {
+        font-size: 10px !important;
+      }
+
+      p {
+        font-size: 15px !important;
+      }
+
+      &.salario-liquido {
+        grid-column-end: span 2 !important;
+        height: 40% !important;
+        background-color: global.$orange !important;
+    }
+  }
+}
+}
+
+@media screen and (max-width: 604px) {
+  main {
+    grid-template-columns: 1fr !important; 
 
     .results {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr 1fr 1fr;
-        background-color: global.$light-blue;
-        height: 80%;
-        width: 80%;
-        margin: auto;
-        border-radius: 20px;
-        box-shadow: global.$box-shadow;
+      display: flex;
+      flex-direction: column;
+      margin-inline: auto !important;
 
-        .right-grid-item {
-            @include global.flex-column();
-            justify-content: center;
-            align-items: center;
-            margin: 2rem auto;
-            gap: 1rem;
-            background-color: global.$white;
-            border-radius: 10px;
-            width: 80%;
-            height: 70%;
-            color: global.$black;
-            box-shadow: global.$box-shadow;
+      .right-grid-item {
+        height: 100% !important;
+        padding: 1rem;
+        margin: 2rem !important;
 
-            &.salario-liquido {
-                grid-column-end: span 3;
-                width: 90%;
-                background-color: global.$orange;
-
-                .right-grid-item-h1.salario-liquido-h1 {
-                    font-size: 25px;
-                    color: global.$white;
-                }
-
-            }
-
-            .right-grid-item-h1 {
-                font-size: 15px;
-                font-weight: 600;
-                color: var(--black);
-            }
-
-            .right-grid-item-p{
-                font-weight: 600;
-                font-size: 25px;
-                color: global.$black;
-            }
-
-            .desconto {
-                color: red;
-                font-weight: 700;
-            }
-
-            .provento {
-                color: green;
-                font-weight: 700;
-            }
+        h1 {
+          font-size: 18px !important;
         }
+
+        p {
+          font-size: 20px !important;
+        }
+      }
     }
+  }
 }
 

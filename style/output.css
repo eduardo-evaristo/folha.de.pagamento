@@ -99,7 +99,7 @@ header nav .header-nav-link:hover, header ul .header-nav-link:hover {
   position: relative;
   display: flex;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .hero .hero-section .buttons .hero-button::after {
   content: "•";
@@ -112,6 +112,14 @@ header nav .header-nav-link:hover, header ul .header-nav-link:hover {
   transform: scale(105%);
 }
 
+@media screen and (max-width: 604px) {
+  .h1-hero {
+    font-size: 4ch !important;
+  }
+  .h2-hero {
+    font-size: 2.3ch !important;
+  }
+}
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -121,7 +129,7 @@ main .main-calculations {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  margin: 3rem 0 3rem; /*SOLVES OVERFLOW*/
+  margin: 2rem 1rem; /*SOLVES OVERFLOW*/
 }
 main .main-calculations .left-grid-item {
   display: flex;
@@ -135,7 +143,7 @@ main .main-calculations .left-grid-item {
   width: 80%;
   height: 70%;
   color: #e4e4e7;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 main .main-calculations .left-grid-item label {
   font-weight: 600;
@@ -189,6 +197,26 @@ main .main-calculations .left-grid-item .insalubridade.hidden {
   display: none;
 }
 
+@media screen and (max-width: 1255px) {
+  main {
+    padding-block: 7rem;
+  }
+  .main-calculations label {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .main-calculations {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr !important;
+    margin-inline: 0 !important;
+  }
+}
+@media screen and (max-width: 604px) {
+  .main-calculations label {
+    font-size: 15px;
+  }
+}
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -203,21 +231,22 @@ main .results {
   width: 80%;
   margin: auto;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  place-items: center;
 }
 main .results .right-grid-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2rem auto;
+  text-align: center;
   gap: 1rem;
   background-color: #e4e4e7;
   border-radius: 10px;
   width: 80%;
   height: 70%;
   color: #09090b;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 main .results .right-grid-item.salario-liquido {
   grid-column-end: span 3;
@@ -231,7 +260,7 @@ main .results .right-grid-item.salario-liquido .right-grid-item-h1.salario-liqui
 main .results .right-grid-item .right-grid-item-h1 {
   font-size: 15px;
   font-weight: 600;
-  color: var(--black);
+  color: #09090b;
 }
 main .results .right-grid-item .right-grid-item-p {
   font-weight: 600;
@@ -247,6 +276,76 @@ main .results .right-grid-item .provento {
   font-weight: 700;
 }
 
+@media screen and (max-width: 1255px) {
+  .right-grid-item-h1 {
+    font-size: 12px !important;
+  }
+  .right-grid-item-p {
+    font-size: 20px !important;
+  }
+}
+/*
+@media screen and (max-width: 990px) {
+  // Not working as intended
+  .results {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    margin: 2rem 1rem !important;
+    .right-grid-item {
+      height: 50% !important;
+      width: 70% !important;
+      margin: 1rem auto !important;
+      gap: 1rem;
+    }
+  }
+}
+*/
+@media screen and (max-width: 990px) {
+  .results {
+    grid-template-columns: 1fr 1fr !important; /* Update to 2 columns */
+    grid-template-rows: repeat(4, 1fr) !important;
+    height: 100% !important;
+    margin: 2rem 1rem !important;
+  }
+  .results .right-grid-item {
+    height: 40% !important;
+    width: 80% !important;
+    gap: 1rem !important;
+  }
+  .results .right-grid-item h1 {
+    font-size: 10px !important;
+  }
+  .results .right-grid-item p {
+    font-size: 15px !important;
+  }
+  .results .right-grid-item.salario-liquido {
+    grid-column-end: span 2 !important;
+    height: 40% !important;
+    background-color: #f97316 !important;
+  }
+}
+@media screen and (max-width: 604px) {
+  main {
+    grid-template-columns: 1fr !important;
+  }
+  main .results {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto !important;
+  }
+  main .results .right-grid-item {
+    height: 100% !important;
+    padding: 1rem;
+    margin: 2rem !important;
+  }
+  main .results .right-grid-item h1 {
+    font-size: 18px !important;
+  }
+  main .results .right-grid-item p {
+    font-size: 20px !important;
+  }
+}
 .accordion {
   background-color: #1e1b4b;
   display: flex;
@@ -263,7 +362,7 @@ main .results .right-grid-item .provento {
   background-color: #e4e4e7;
   border-radius: 1rem;
   margin: 1rem 0;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .accordion .accordion-section .accordion-item .accordion-item-head {
   background-color: #f97316;
@@ -298,6 +397,15 @@ main .results .right-grid-item .provento {
   padding: 2rem;
   font-weight: 400;
   line-height: 2rem;
+}
+
+@media screen and (max-width: 604px) {
+  .accordion-section {
+    width: 85% !important;
+  }
+  .accordion-item-head {
+    font-size: 0.8rem !important;
+  }
 }
 
 /*# sourceMappingURL=output.css.map */

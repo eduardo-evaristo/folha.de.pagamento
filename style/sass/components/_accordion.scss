@@ -5,6 +5,7 @@
     @include global.flex-column();
     justify-content: center;
     align-items: center;
+    //padding-top: 2rem;
 
     .accordion-section {
         width: 70%;
@@ -58,4 +59,15 @@
         }
     }
 
+}
+
+@media screen and (max-width:604px) {
+    .accordion-section {
+        width: 85% !important;
+    }
+
+    .accordion-item-head {
+        font-size: 0.8rem !important;
+    }
+    
 }

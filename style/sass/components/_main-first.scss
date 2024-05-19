@@ -4,13 +4,14 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: global.$dark-blue;
+    
 
 //--------------First Grid----------------//
     .main-calculations {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        margin: 3rem 0 3rem; /*SOLVES OVERFLOW*/
+        margin: 2rem 1rem; /*SOLVES OVERFLOW*/
 
         .left-grid-item {
             @include global.flex-column();
@@ -85,5 +86,32 @@ main {
             }  
         }
     }
-//--------------Second Grid----------------//
 }
+//Media Queries
+@media screen and (max-width:1255px) {
+    main {
+        padding-block: 7rem;
+    }
+    .main-calculations {
+        label {
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (max-width:990px) {
+    .main-calculations {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr 1fr 1fr !important;
+        margin-inline: 0 !important;
+    }
+}
+
+@media screen and (max-width:604px) {
+    .main-calculations {
+        label {
+            font-size: 15px;
+        }
+    }
+}
+

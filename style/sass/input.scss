@@ -1,6 +1,6 @@
-@use "abstract/global";
-@use "components/header.scss";
-@use "components/hero";
-@use "components/main-first";
-@use "components/main-second";
-@use "components/accordion.scss";
+@forward "abstract/global";
+@forward "components/header";
+@forward "components/hero";
+@forward "components/main-first";
+@forward "components/main-second";
+@forward "components/accordion";
