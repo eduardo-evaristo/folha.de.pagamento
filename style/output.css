@@ -99,7 +99,7 @@ header nav .header-nav-link:hover, header ul .header-nav-link:hover {
   position: relative;
   display: flex;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 .hero .hero-section .buttons .hero-button::after {
   content: "•";
@@ -143,7 +143,7 @@ main .main-calculations .left-grid-item {
   width: 80%;
   height: 70%;
   color: #e4e4e7;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 main .main-calculations .left-grid-item label {
   font-weight: 600;
@@ -231,7 +231,7 @@ main .results {
   width: 80%;
   margin: auto;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   place-items: center;
 }
 main .results .right-grid-item {
@@ -246,7 +246,7 @@ main .results .right-grid-item {
   width: 80%;
   height: 70%;
   color: #09090b;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 main .results .right-grid-item.salario-liquido {
   grid-column-end: span 3;
@@ -362,7 +362,7 @@ main .results .right-grid-item .provento {
   background-color: #e4e4e7;
   border-radius: 1rem;
   margin: 1rem 0;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 .accordion .accordion-section .accordion-item .accordion-item-head {
   background-color: #f97316;

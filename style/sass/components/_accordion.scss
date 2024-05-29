@@ -1,5 +1,6 @@
 @use "../abstract/global";
 
+
 .accordion {
     background-color: global.$dark-blue;
     @include global.flex-column();

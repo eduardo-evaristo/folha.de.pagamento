@@ -1,12 +1,11 @@
 @use "../abstract/global";
 
+
 main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: global.$dark-blue;
     
-
-//--------------First Grid----------------//
     .main-calculations {
         display: grid;
         grid-template-columns: 1fr 1fr;
