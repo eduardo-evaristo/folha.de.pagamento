@@ -42,12 +42,17 @@ function validKeys(event) {
     "8",
     "9",
     "Backspace",
-    ".",
+    ",",
   ];
 
   if (!validKeys.includes(event.key)) {
     event.preventDefault();
   }
+}
+
+function numberFormatter(str) {
+  return Number(str.replace(",", "."));
+
 }
 
 //Função para número mínimo e máximo de dias trabalhados por mês
@@ -95,7 +100,7 @@ function calcValeRefeicao() {
 }
 
 function calcFGTS() {
-  return Number((salarioBruto.value * 0.08).toFixed(2));
+  return Number((numberFormatter(salarioBruto.value) * 0.08).toFixed(2));
 }
 
 //Função para calcular salário líquido
