@@ -1,0 +1,50 @@
+@use "../abstract/global";
+
+footer {
+    background-color: global.$black;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    h1 {
+        color: global.$white;
+        text-align: center;
+        font-size: 1.3rem;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            color: global.$orange;
+        }
+
+        span {
+            color: global.$orange;
+        }
+
+        a {
+            color: global.$light-blue;
+            transition: color 0.2s ease-in-out;
+
+            &:hover {
+                color: global.$white;
+            }
+        }
+    }
+
+    .socials {
+        font-size: 2rem;
+        color: global.$white;
+        transition: color 0.2s ease-in-out;
+
+        a {
+            color: global.$white;
+
+            &:hover {
+                color: global.$orange;
+            }
+        }
+
+        
+    }
+}

@@ -45,19 +45,14 @@ header {
         }
 
         .mobile-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            .line {
-                width: 40px;
-                height: 5px;
-                background-color: global.$white;
-                //margin-block: 5px;
-                border-radius: 20px;
+            display: block;
+            font-size: 3.5rem;
+            color: global.$white;
 
-                &.active {
-                    transform: rotate(45deg);
-                }
+            transition: color 0.2s ease-in-out;
+
+            &:hover {
+                    color: global.$orange;
             }
         }
     }

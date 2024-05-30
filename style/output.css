@@ -53,18 +53,13 @@ header .mobile-nav {
     display: none;
   }
   header .mobile-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    display: block;
+    font-size: 3.5rem;
+    color: #e4e4e7;
+    transition: color 0.2s ease-in-out;
   }
-  header .mobile-nav .line {
-    width: 40px;
-    height: 5px;
-    background-color: #e4e4e7;
-    border-radius: 20px;
-  }
-  header .mobile-nav .line.active {
-    transform: rotate(45deg);
+  header .mobile-nav:hover {
+    color: #f97316;
   }
 }
 .hero {
@@ -347,7 +342,7 @@ main .results .right-grid-item .provento {
     background-color: #f97316 !important;
   }
 }
-@media screen and (max-width: 604px) {
+@media screen and (max-width: 990px) {
   main {
     grid-template-columns: 1fr !important;
   }
@@ -428,6 +423,98 @@ main .results .right-grid-item .provento {
   .accordion-item-head {
     font-size: 0.8rem !important;
   }
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1e1b4b;
+  display: flex;
+  justify-content: center;
+}
+.modal ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+}
+.modal ul a {
+  color: #e4e4e7;
+  font-size: 2rem;
+  font-weight: 800;
+  transition: color 0.2s ease-in-out;
+}
+.modal ul a:hover {
+  color: #f97316;
+}
+.modal .close-button {
+  font-size: 4rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 1.6rem;
+  color: #e4e4e7;
+  transition: color 0.2s ease-in-out;
+}
+.modal .close-button:hover {
+  color: #f97316;
+}
+
+/*
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    //z-index: 5;
+}
+*/
+.hidden {
+  display: none;
+}
+
+footer {
+  background-color: #09090b;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+footer h1 {
+  color: #e4e4e7;
+  text-align: center;
+  font-size: 1.3rem;
+  transition: color 0.2s ease-in-out;
+}
+footer h1:hover {
+  color: #f97316;
+}
+footer h1 span {
+  color: #f97316;
+}
+footer h1 a {
+  color: #4338ca;
+  transition: color 0.2s ease-in-out;
+}
+footer h1 a:hover {
+  color: #e4e4e7;
+}
+footer .socials {
+  font-size: 2rem;
+  color: #e4e4e7;
+  transition: color 0.2s ease-in-out;
+}
+footer .socials a {
+  color: #e4e4e7;
+}
+footer .socials a:hover {
+  color: #f97316;
 }
 
 /*# sourceMappingURL=output.css.map */
