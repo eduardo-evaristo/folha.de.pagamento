@@ -16,6 +16,7 @@ const accordionItemHead = document.querySelectorAll(".accordion-item-head");
 const heroButtons = document.querySelectorAll(".hero-button");
 //const main = document.querySelector("main");
 //const accordionSection = document.querySelector(".accordion");
+const mobileNav = document.querySelector(".mobile-nav");
 
 //Final values
 const passagemVal = document.querySelector(".passagem-valor");
