@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="wrapper">
@@ -21,11 +22,14 @@
                 <li><a href="#" class="header-nav-link">About</a></li>
                 </ul>
             </nav>
+            <i class='bx bx-menu mobile-nav'></i>
+            <!--
             <div class="mobile-nav">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
+            -->
         </header>
     
         <section class="hero">
@@ -199,19 +203,27 @@
     
 
     <footer>
-        
+        <h1>Criado por <a href="https://github.com/eduardo-evaristo" target="_blank">Eduardo Evaristo</a> <span>:)</span></h1>
+        <div class="socials">
+            <ul>
+                <li><a href="https://github.com/eduardo-evaristo" target="_blank"><i class='bx bxl-github github' ></i></a></li>
+            </ul>
+        </div>
     </footer>
+
+    <!--<div class="overlay hidden"></div>-->
     
-    <!--
-    <div class="modal">
+    
+    <div class="modal hidden">
+        <i class="bx bx-x close-button"></i>
         <ul>
             <li><a href="#" class="header-nav-link">Buy</a></li>
             <li><a href="#" class="header-nav-link">Options</a></li>
             <li><a href="#" class="header-nav-link">FAQ</a></li>
-            <li><a href="#" class="header-nav-link">About</a></li>
+            <li><a href="https://github.com/eduardo-evaristo" target="_blank" class="header-nav-link">Github</a></li>
         </ul>
     </div>
-    -->
+    
     <script src="script.js"></script>
 </body>
 </html>

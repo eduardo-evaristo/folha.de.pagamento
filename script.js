@@ -17,6 +17,8 @@ const heroButtons = document.querySelectorAll(".hero-button");
 //const main = document.querySelector("main");
 //const accordionSection = document.querySelector(".accordion");
 const mobileNav = document.querySelector(".mobile-nav");
+const closeButton = document.querySelector(".close-button");
+const modal = document.querySelector(".modal");
 
 //Final values
 const passagemVal = document.querySelector(".passagem-valor");
@@ -28,6 +30,20 @@ const salarioLiquidoVal = document.querySelector(".salario-liquido-valor");
 
 proventos.value = "";
 insalubridade.value = "";
+
+//Função do modal
+function toggleModal() {
+  if(modal.classList.contains("hidden")) {
+    modal.classList.toggle("hidden");
+    document.body.style.overflowY = "hidden";
+  } else {
+    modal.classList.toggle("hidden");
+    document.body.style.overflowY = "scroll";
+  }
+}
+
+mobileNav.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
 
 //Função para validar se o caracter é um número, backspace ou .
 function validKeys(event) {
