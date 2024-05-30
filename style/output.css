@@ -44,7 +44,29 @@ header nav .header-nav-link, header ul .header-nav-link {
 header nav .header-nav-link:hover, header ul .header-nav-link:hover {
   color: #f97316;
 }
+header .mobile-nav {
+  display: none;
+}
 
+@media screen and (max-width: 604px) {
+  header nav, header ul {
+    display: none;
+  }
+  header .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  header .mobile-nav .line {
+    width: 40px;
+    height: 5px;
+    background-color: #e4e4e7;
+    border-radius: 20px;
+  }
+  header .mobile-nav .line.active {
+    transform: rotate(45deg);
+  }
+}
 .hero {
   background-color: #4338ca;
   display: flex;
@@ -303,7 +325,7 @@ main .results .right-grid-item .provento {
 */
 @media screen and (max-width: 990px) {
   .results {
-    grid-template-columns: 1fr 1fr !important; /* Update to 2 columns */
+    grid-template-columns: 1fr 1fr !important;
     grid-template-rows: repeat(4, 1fr) !important;
     height: 100% !important;
     margin: 2rem 1rem !important;

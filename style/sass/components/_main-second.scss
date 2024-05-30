@@ -97,7 +97,7 @@ main {
 
 @media screen and (max-width: 990px) {
   .results {
-    grid-template-columns: 1fr 1fr !important; /* Update to 2 columns */
+    grid-template-columns: 1fr 1fr !important; // Update to 2 columns
     grid-template-rows: repeat(4, 1fr) !important;
     height: 100% !important;
     margin: 2rem 1rem !important;
@@ -124,6 +124,8 @@ main {
 }
 }
 
+
+
 @media screen and (max-width: 604px) {
   main {
     grid-template-columns: 1fr !important; 
@@ -132,6 +134,7 @@ main {
       display: flex;
       flex-direction: column;
       margin-inline: auto !important;
+      //margin: 2rem !important;
 
       .right-grid-item {
         height: 100% !important;

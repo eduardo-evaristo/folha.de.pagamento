@@ -32,4 +32,33 @@ header {
             }
         }
     }
+
+    .mobile-nav {
+        display: none;
+    }
 }
+
+@media screen and (max-width: 604px) {
+    header {
+        nav, ul {
+            display: none;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .line {
+                width: 40px;
+                height: 5px;
+                background-color: global.$white;
+                //margin-block: 5px;
+                border-radius: 20px;
+
+                &.active {
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+  }
