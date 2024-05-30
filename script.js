@@ -51,7 +51,8 @@ function validKeys(event) {
 }
 
 function numberFormatter(str) {
-  return Number(str.replace(",", "."));
+  let formattedNumber = str.replace(",", ".");
+  return Number(formattedNumber);
 
 }
 
@@ -64,15 +65,15 @@ function diasUteisMinMax() {
 
 //Função para calcular e retornar o valor mínimo da passagem
 function calcPassagem() {
-  const diasXPassagem = Number((passagem.value * diasUteis.value).toFixed(2));
-  const salBrutoSeis = Number((salarioBruto.value * 0.06).toFixed(2));
+  const diasXPassagem = Number((numberFormatter(passagem.value) * diasUteis.value).toFixed(2));
+  const salBrutoSeis = Number((numberFormatter(salarioBruto.value) * 0.06).toFixed(2));
   return diasXPassagem < salBrutoSeis ? diasXPassagem : salBrutoSeis;
 }
 
 //Função para calcular valor da periculosidade
 function calcPericulosidade() {
   if (proventos.value === "periculosidade") {
-    return (salarioBruto.value * 0.3).toFixed(2);
+    return Number((numberFormatter(salarioBruto.value) * 0.3).toFixed(2));
   }
   return 0;
 }
@@ -82,13 +83,13 @@ function calcInsalubridade() {
   switch (insalubridade.value) {
     case "minima":
       return Number((salarioMinimoAtual * 0.1).toFixed(2));
-      break;
+      //break;
     case "media":
       return Number((salarioMinimoAtual * 0.2).toFixed(2));
-      break;
+      //break;
     case "maxima":
       return Number((salarioMinimoAtual * 0.4).toFixed(2));
-      break;
+      //break;
     default:
       return 0;
   }
@@ -96,7 +97,7 @@ function calcInsalubridade() {
 
 //Função para calcular vale-refeição
 function calcValeRefeicao() {
-  return Number((valeRefeicao.value * diasUteis.value * 0.2).toFixed(2));
+  return Number((numberFormatter(valeRefeicao.value) * diasUteis.value * 0.2).toFixed(2));
 }
 
 function calcFGTS() {
@@ -106,12 +107,31 @@ function calcFGTS() {
 //Função para calcular salário líquido
 function calcSalarioLiquido() {
   return (
-    salarioBruto.value -
+    numberFormatter(salarioBruto.value) -
     calcPassagem() -
     calcValeRefeicao() +
     calcInsalubridade() +
     calcPericulosidade()
-  ).toFixed(2);
+  )/*.toFixed(2)*/;
+}
+
+//Função para formatar valores
+function formatNumbersIntoString(number) {
+  let numberIntoString = number.toFixed(2).replace(".", ",");
+  let [trailingValue, value] = [numberIntoString.slice(-3), numberIntoString.slice(0, -3)];
+  let numberIntoStringLength = value.length;
+  let numberIntoStringArray = [...value];
+
+  switch (numberIntoStringLength) {
+    case 4:
+      return numberIntoStringArray.toSpliced(1, 0, ".").toString().replaceAll(",", "") + trailingValue;
+    case 5:
+      return numberIntoStringArray.toSpliced(2, 0, ".").toString().replaceAll(",", "") + trailingValue;
+    case 6:
+      return numberIntoStringArray.toSpliced(3, 0, ".").toString().replaceAll(",", "") + trailingValue;
+    default:
+      return numberIntoString;
+  }
 }
 
 //Função para obter valores inseridos
@@ -120,12 +140,12 @@ mainButton.addEventListener("click", function (e) {
   e.preventDefault();
 
   if (salarioBruto.value !== "" && diasUteis.value !== "") {
-    passagemVal.textContent = "-" + calcPassagem();
-    periculosidadeVal.textContent = "+" + calcPericulosidade();
-    insalubridadeVal.textContent = "+" + calcInsalubridade();
-    valeRefeicaoVal.textContent = "-" + calcValeRefeicao();
-    fgtsVal.textContent = calcFGTS();
-    salarioLiquidoVal.textContent = calcSalarioLiquido();
+    passagemVal.textContent = "-" + formatNumbersIntoString(calcPassagem());
+    periculosidadeVal.textContent = "+" + formatNumbersIntoString(calcPericulosidade());
+    insalubridadeVal.textContent = "+" + formatNumbersIntoString(calcInsalubridade());
+    valeRefeicaoVal.textContent = "-" + formatNumbersIntoString(calcValeRefeicao());
+    fgtsVal.textContent = formatNumbersIntoString(calcFGTS());
+    salarioLiquidoVal.textContent = formatNumbersIntoString(calcSalarioLiquido());
   }
 });
 
