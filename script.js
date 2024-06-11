@@ -14,11 +14,13 @@ const accordionItemHead = document.querySelectorAll(".accordion-item-head");
 //const heroButton1 = document.querySelector(".button-1");
 //const heroButton2 = document.querySelector(".button-2");
 const heroButtons = document.querySelectorAll(".hero-button");
+const headerLinkSobre = document.querySelector(".sobre");
 //const main = document.querySelector("main");
 //const accordionSection = document.querySelector(".accordion");
 const mobileNav = document.querySelector(".mobile-nav");
 const closeButton = document.querySelector(".close-button");
 const modal = document.querySelector(".modal");
+const form = document.querySelector(".main-calculations");
 
 //Final values
 const passagemVal = document.querySelector(".passagem-valor");
@@ -41,6 +43,14 @@ function toggleModal() {
     document.body.style.overflowY = "scroll";
   }
 }
+
+//Funções que acontecem quando a página for carregada
+window.onload = function () {
+  checkboxPassagem.checked = false;
+  checkboxValeRefeicao.checked = false;
+  form.reset();
+};
+
 
 mobileNav.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
@@ -193,11 +203,6 @@ checkboxValeRefeicao.addEventListener("input", function () {
   valeRefeicao.toggleAttribute("disabled");
 });
 
-//Check better later - Unchecks the checkboxes when page is loaded
-window.onload = function () {
-  checkboxPassagem.checked = false;
-  checkboxValeRefeicao.checked = false;
-};
 
 //scrollIntoView()
 /*
@@ -212,13 +217,19 @@ heroButton2.addEventListener("click", function () {
 });
 */
 
+//ScrollIntoView dos botões do hero
 for (let i = 0; i < heroButtons.length; i++) {
-  heroButtons[i].addEventListener("click", function () {
+  heroButtons[i].addEventListener("click", scrollIntoView);
+}
+
+//Função para scrollar até certo elemento
+function scrollIntoView(e) {
+    e.preventDefault(); //Keeps links from send HTTP request
     const targetId = this.getAttribute("data-target");
     //Gets the value from the HTML attribute data-target, which is the id of the element we need to scrollIntoView()
     //console.log(targetId)
     //let targetElement = document.querySelector(`#${targetId}`);
-    const targetElement = document.getElementById(targetId);
+    const targetElement = document.getElementById(targetId) || document.querySelector(`${targetId}`);
     //In this context, the target element does not exist, so we need to document.querySelector it before, otherwise, it has no other way of knowing where it needs to go
     if (targetElement) {
       targetElement.scrollIntoView({ block: "center", behavior: "smooth" });
@@ -227,8 +238,12 @@ for (let i = 0; i < heroButtons.length; i++) {
         `${Error} targetElement could not be found. Target element is ${targetElement}!`
       );
     }
-  });
 }
+
+
+
+//ScrollIntoView do navlink "Sobre"
+headerLinkSobre.addEventListener("click", scrollIntoView)
 
 //Accordion
 for (let i = 0; i < accordionItemHead.length; i++) {
