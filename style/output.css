@@ -30,7 +30,7 @@ header {
 }
 header .logo {
   color: #e4e4e7;
-  font-weight: 700;
+  font-weight: 800;
 }
 header nav, header ul {
   display: flex;
@@ -49,6 +49,9 @@ header .mobile-nav {
 }
 
 @media screen and (max-width: 604px) {
+  header .logo {
+    font-size: 1.5rem;
+  }
   header nav, header ul {
     display: none;
   }
@@ -116,7 +119,7 @@ header .mobile-nav {
   position: relative;
   display: flex;
   align-items: center;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .hero .hero-section .buttons .hero-button::after {
   content: "•";
@@ -160,7 +163,7 @@ main .main-calculations .left-grid-item {
   width: 80%;
   height: 70%;
   color: #e4e4e7;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 main .main-calculations .left-grid-item label {
   font-weight: 600;
@@ -248,7 +251,7 @@ main .results {
   width: 80%;
   margin: auto;
   border-radius: 20px;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   place-items: center;
 }
 main .results .right-grid-item {
@@ -263,7 +266,7 @@ main .results .right-grid-item {
   width: 80%;
   height: 70%;
   color: #09090b;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 main .results .right-grid-item.salario-liquido {
   grid-column-end: span 3;
@@ -379,7 +382,7 @@ main .results .right-grid-item .provento {
   background-color: #e4e4e7;
   border-radius: 1rem;
   margin: 1rem 0;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .accordion .accordion-section .accordion-item .accordion-item-head {
   background-color: #f97316;
@@ -515,6 +518,12 @@ footer .socials a {
 }
 footer .socials a:hover {
   color: #f97316;
+}
+
+@media screen and (max-width: 604px) {
+  footer h1 {
+    font-size: 0.9rem !important;
+  }
 }
 
 /*# sourceMappingURL=output.css.map */
